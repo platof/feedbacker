@@ -1,0 +1,112 @@
+@import '../../scss/compulsory';
+
+@import '../../scss/atoms/button';
+
+%target-icon {
+  @include reset-button();
+  display: flex;
+  padding: 4px;
+  border-radius: 100%;
+  cursor: pointer;
+
+  svg {
+    $target-icon-dimension: 14px;
+    width: $target-icon-dimension;
+    height: $target-icon-dimension;
+    fill: $palette-dark;
+    transition: fill $transition-default-tail
+  }
+
+  &:hover svg {
+    fill: $palette-black;
+    transition: fill $transition-default-tail
+  }
+
+  &:focus svg {
+    fill: $palette-accent;
+    transition: fill $transition-default-tail
+  }
+
+  &.highlighted {
+    border: 1px solid $palette-accent;
+
+    svg {
+      $target-icon-dimension: 13px;
+      width: $target-icon-dimension;
+      height: $target-icon-dimension;
+      fill: $palette-black;
+    }
+  }
+}
+
+.comment {
+  position: relative; // For labels
+  margin-top: $spacer;
+  padding: $spacer;
+  border-radius: $border-radius-default;
+  background: $palette-white;
+  @include shadow-outline(1px);
+
+  &:first-of-type {
+    margin-top: 0;
+  }
+
+  .header {
+    display: flex;
+    align-items: flex-start;
+
+    // For labels
+    .name {
+      position: relative;
+      margin-bottom: $baseline;
+      z-index: 2;
+    }
+
+    // When name wraps => still at top but time & target centered
+    .time-target-container {
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+    }
+  }
+
+  .target-icon {
+    @extend %target-icon;
+  }
+
+  .text {
+    margin-top: $baseline;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .timestamp {
+    margin-right: $baseline;
+    font-size: $font-size-small;
+  }
+}
+
+.actions-container {
+  display: flex;
+  justify-content: space-between;
+
+  button {
+    @include reset-button();
+    margin: $spacer 1px 0 0; // 1px for shadow-outline fix
+    color: $palette-medium;
+
+    &.hidden {
+      display: none;
+    }
+
+    &:only-of-type {
+      margin-left: auto;
+    }
+
+    &:focus {
+      color: $palette-dark;
+    }
+  }
+}

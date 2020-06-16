@@ -1,0 +1,33 @@
+@import '../../scss/compulsory';
+@import '../../scss/atoms/button';
+@import '../../scss/atoms/view-container';
+@import '../../scss/atoms/generic_input';
+@import '../../scss/organisms/forms';
+
+.center-center-block {
+  @extend %center-view;
+}
+
+.login-view {
+  @extend %view-container;
+  max-width: 600px;
+
+  .form {
+    @extend %form;
+  }
+
+  .input {
+    @extend %generic-input;
+    margin-bottom: $baseline;
+  }
+
+  h1 {
+    margin-bottom: $baseline;
+  }
+  
+  @include media-query(mobile) {
+   padding: $spacer * 2;
+   box-shadow: none;
+   background: inherit;
+  }
+}

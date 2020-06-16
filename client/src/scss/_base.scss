@@ -1,0 +1,42 @@
+// Break cascade from outside css
+[data-feedback-react-root], .feedback-app-container {
+  all: initial;
+}
+
+@import '../../node_modules/node.normalize.scss/normalize';
+// Import all project partials
+@import './compulsory';
+@import './typography';
+@import './atoms/tooltip';
+@import './atoms/anchor';
+
+// Set box sizing
+[data-feedback-react-root] {
+  box-sizing: border-box;
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+}
+
+// For hiding on tagging mode active
+.tagging-mode-active {
+  &, & *:not([data-disable-tagging-hide]) {
+    visibility: hidden !important;
+  }
+}
+
+// Ensure that feedbacker tool is always on top
+.feedback-app-container {
+  @include z-level(1);
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &.site-views {
+    width: 100%;
+
+    @include media-query(wide-screens) {
+      height: 100%;
+    }
+  }
+}

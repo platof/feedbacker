@@ -1,0 +1,14 @@
+{
+  "port": 8080,
+  "dev": true,
+  "useTestData": true,
+  "runners": [
+    {
+      "name": "npm run start",
+      "tag": "node-runner"
+    }
+  ],
+  "imageMaxSize": 52428800,
+  "corsOriginRegex": "localhost$",
+  "cookieSecret": "DEV SECRET"
+}

@@ -1,0 +1,33 @@
+
+# Node dependency clones
+node_modules/
+
+# Webpack output files
+build/
+
+# Test coverage files
+coverage/
+
+# NPM cache directory
+.npm
+
+# Automatic OS generated files
+.DS_Store
+
+# DB testing file
+dev_db.sqlite
+
+# IDE
+.idea/
+
+# Executable files
+*.exe
+
+# Proxy on mac and linux
+proxy/proxy
+
+# Vim binaries on mac
+*.swp
+
+# Local config
+local.json

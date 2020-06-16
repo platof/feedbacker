@@ -1,0 +1,62 @@
+@import '../../scss/compulsory';
+
+@import '../../scss/atoms/button';
+@import '../../scss/organisms/toggle-buttons';
+
+.reactions {
+  @extend %toggle-container;
+}
+
+.reaction {
+  @extend %toggle-button;
+}
+
+$symbol-height: 1em;
+.emoji {
+  height: $symbol-height;
+  width: 2ch;
+  display: inline-block;
+  background-color: transparent;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.toggled {
+  @extend %toggled
+}
+
+.counter {
+  display: inline-block;
+  margin-left: 1ch;
+  line-height: $symbol-height;
+  transition: $transition-default-all;
+  width: auto;
+  opacity: 1;
+  &[data-count='0'] {
+    width: 0;
+    margin-left: 0;
+    opacity: 0;
+    transition: margin-left $transition-default-tail, width $transition-default-tail;
+  }
+}
+
+.up {
+  background-image: static-url('/emojis/thumbs-up.png');
+}
+
+.down {
+  background-image: static-url('/emojis/thumbs-down.png');
+}
+
+.fire {
+  background-image: static-url('/emojis/fire.png');
+}
+
+.party {
+  background-image: static-url('/emojis/party-popper.png');
+}
+
+.lightbulb {
+  background-image: static-url('/emojis/electric-light-bulb.png');
+}

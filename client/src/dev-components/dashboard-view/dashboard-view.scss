@@ -1,0 +1,46 @@
+@import '../../scss/compulsory';
+
+@import '../../scss/atoms/button';
+@import '../../scss/atoms/tooltip';
+
+.top-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: $spacer * 3;
+  box-shadow: 0 0 10px $palette-shadow-light;
+
+  .top-section-buttons {
+    display: flex;
+    align-items: center;
+
+    // For responsive header wrap
+    @include media-query(mobile) {
+      flex-wrap: wrap-reverse;
+      justify-content: flex-end;
+    }
+  }
+}
+
+.create-button {
+  @extend %anchor-button-accent;
+  align-self: flex-end;
+  // For responsive header wrap
+  @include media-query(mobile) {
+    margin-bottom: $baseline;
+  }
+}
+
+.instances-container {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: $spacer * 2;
+
+  h2 {
+    margin-top: $spacer * 3;
+    margin-bottom: $spacer * 2;
+  }
+}

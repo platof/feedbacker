@@ -1,0 +1,32 @@
+@import '../../scss/compulsory';
+
+@import '../../scss/atoms/button';
+
+@import '../comment/comment';
+
+.button {
+  @extend %target-icon;
+  @include shadow-outline();
+  padding: $baseline;
+  border-radius: 100%;
+  background: $palette-white;
+  color: transparent;
+  cursor: pointer;
+
+  &.active {
+    @include button(2px);
+    visibility: visible;
+    box-shadow: 0 2px 5px $palette-medium;
+    padding: $baseline $spacer;
+    background: $palette-accent;
+    color: $palette-white;
+  }
+
+  &.selected {
+    background: $palette-accent;
+
+    svg {
+      fill: $palette-white;
+    }
+  }
+}

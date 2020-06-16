@@ -1,0 +1,141 @@
+@import '../../scss/compulsory';
+
+@import '../../scss/atoms/button';
+@import '../../scss/atoms/textarea';
+@import '../../scss/atoms/generic_input';
+@import '../../scss/organisms/toggle-buttons';
+
+.survey-edit-card {
+  margin-bottom: $spacer;
+  padding: $spacer;
+  border-radius: $border-radius-default;
+  background: $palette-white;
+  @include shadow-outline(1px);
+
+  &:last-of-type {
+    margin-top: 0;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & textarea + .actions {
+      align-self: flex-start;
+    }
+  }
+
+  button {
+    @extend %anchor-button;
+  }
+
+  .actions {
+    margin-left: auto;
+    text-align: right; // For right aligning wrapping buttons
+
+    button {
+      margin-left: $baseline;
+
+      &:not(:last-of-type) {
+        margin-bottom: $baseline;
+      }
+    }
+  }
+
+  textarea {
+    @extend %textarea;
+    min-width: unset;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  input {
+    @extend %generic-input;
+    text-align: center;
+  }
+
+  .options-container {
+    @extend %toggle-container;
+    display: flex;
+    margin-top: -$baseline;
+
+    input {
+      @extend %toggle-button;
+      display: inline-flex;
+      width: 50%;
+      margin-top: 0;
+      flex-grow: 1;
+    }
+  }
+
+  .display-area:not(:empty) {
+    margin-top: $spacer;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  &.edit-commit {
+    background-color: $palette-white;
+  }
+
+  .reorder-handle {
+    $size-y: $font-size-default * 2;
+    $size-x: 4px;
+    display: flex;
+    height: $size-y;
+    width: 4px;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: $spacer;
+    cursor: move;
+    user-select: none;
+
+    &:after {
+      content: '\2807';
+      position: relative;
+      left: -$size-x; // Character has some spacing
+      font-family: initial; // Duplicate handle issue
+      font-size: $size-y;
+      color: $palette-dark;
+      user-select: none;
+    }
+  }
+
+  h4 {
+    display: inline-block;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+
+.answer {
+  $spacer-x: -$spacer - 1px; // 1px for border
+  margin-left: $spacer-x;
+  margin-right: $spacer-x;
+  padding: -$spacer-x; // -- => +
+  border-bottom: 1px solid rgba($palette-light, 0.4);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
+
+  .answer-meta {
+    margin-bottom: $baseline;
+    font-size: $font-size-small;
+  }
+
+  .answer-content {
+    p {
+      margin: 0;
+    }
+  }
+}

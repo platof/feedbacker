@@ -1,0 +1,23 @@
+@import '../../scss/compulsory';
+
+@import '../../scss/atoms/button';
+
+.slack-sign-button {
+  @include reset-button;
+
+  display: flex;
+  position: relative;
+  top: 1px;
+  // For responsive header wrap
+  @include media-query(wide-screens) {
+    margin-right: $spacer;
+  }
+  @include media-query(mobile) {
+    margin-left: 100%;
+  }
+
+  img {
+    height: 31px;
+    width: auto;
+  }
+}
