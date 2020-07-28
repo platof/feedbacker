@@ -42,5 +42,4 @@ ENV APP_COOKIE_SECRET verysecuresecret
 EXPOSE 8080
 COPY ./startup.sh .
 RUN chmod +x startup.sh
-#CMD envsubst '\$APP_DOMAIN' < /client/nginx.conf > /etc/nginx/nginx.conf && nginx -g 'daemon off;' & && npm start -- --config config.json
 CMD ["./startup.sh"]
